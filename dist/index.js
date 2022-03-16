@@ -2722,6 +2722,7 @@ function replaceTokens(tokenPrefix, tokenSuffix, files) {
                 return "";
             }
         });
+        console.log(result)
         return result.filter(r => r.hasChanged).map(r => r.file);
     });
 }
