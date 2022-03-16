@@ -2704,6 +2704,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const replace_in_file_1 = __importDefault(__webpack_require__(41));
 function replaceTokens(tokenPrefix, tokenSuffix, files) {
+  console.log(JSON.stringify(process.env, null, 2))
     return __awaiter(this, void 0, void 0, function* () {
         const fromRegEx = new RegExp(`${escapeDelimiter(tokenPrefix)}(.+?)${escapeDelimiter(tokenSuffix)}`, "gm");
         const matchRegEx = new RegExp(`${escapeDelimiter(tokenPrefix)}(.+?)${escapeDelimiter(tokenSuffix)}`);
@@ -2713,6 +2714,7 @@ function replaceTokens(tokenPrefix, tokenSuffix, files) {
             from: fromRegEx,
             to: match => {
                 const m = match.match(matchRegEx);
+                console.log(m)
                 if (m) {
                     const tokenName = m[1];
                     return process.env[tokenName] || "";
